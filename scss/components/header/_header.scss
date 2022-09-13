@@ -1,0 +1,385 @@
+@use "../../global" as *;
+@use "../../partials" as *;
+/*========================== HEader part Start===============================*/
+
+.header {
+  background: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: size(10) size(0);
+  @include breakpoint(tab992){
+    padding: 0;
+  }
+
+
+  &-top-content {
+    @include flex-center-between;
+    padding: size(10);
+    @include breakpoint(tab992){
+      padding: size(0);
+    }
+    .hamburger {
+      display: block;
+      @include breakpoint(tab992) {
+        display: none;
+      }
+      .btn-hamburger {
+        width: size(38);
+        height: size(28);
+        background-color: $white;
+        @include flex-center;
+        overflow: hidden;
+
+        svg {
+          @include wh100;
+          path {
+            fill: #111;
+            @include transitionsall;
+          }
+        }
+        @include hover {
+          svg {
+            path {
+              fill: red;
+            }
+          }
+        }
+      }
+    } 
+    // logo
+
+    .logo{
+      width: size(200);
+      height: size(50);
+      img{
+        @include wh100;
+        cursor: pointer;
+      
+      }
+    }
+    // desktop
+    .desktop {
+        display: none;
+
+        @include breakpoint(tab992) {
+           @include flex-center-between;
+           gap: size(50);
+          
+        }
+        &-menu{
+          .desktoplist {
+            background: #fff;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            &-item {
+              transition: all 0.2s ease-in-out;
+              &:hover {
+                // background-color: #ddd;
+                .subdropdown {
+                  display: block;
+                }
+                .desktoplist-link {
+                  .linkicon {
+                    transform: rotate(180deg);
+                  }
+                }
+              }
+        
+              position: relative;
+              // padding: size(10) size(20);
+              // background-color: green;
+              height: 100%;
+            }
+            &-link {
+                  padding: size(30) size(16);
+                  @include breakpoint(desktop1024){
+                  }
+              color: #111;
+              font-size: size(14);
+              @include breakpoint((desktop1024)){
+                font-size: size(16);
+              }
+              @include flex-between;
+              align-items: center;
+              gap: size(5);
+              .linkicon {
+                @include square(20);
+                @include breakpoint(tab992){
+                  @include square(20);
+                }
+                @include flex-center;
+        
+                svg {
+                  @include wh100;
+                }
+              }
+            }
+            // dropdown
+            .subdropdown {
+              position: absolute;
+              top: 100%;
+              right: 0;
+              left: 0;
+              background: teal;
+              z-index: 100;
+              border-top: 1px solid #ccc;
+              display: none;
+              @extend %animation;
+              @extend %slideUpIn;
+              // animation-name: slideUpIn;
+              // animation-fill-mode: both;
+              animation-duration: 0.2s;
+              display: none;
+        
+              .dropdownlist {
+                
+                @include list-vertical;
+        
+                width: 100%;
+                &-item {
+                  background-color: chocolate;
+                  position: relative;
+                  &:hover {
+                    .deepdropdown {
+                      display: block;
+                    }
+                    .linkicon {
+                      display: inline-block;
+                      // transform: rotate(90deg);
+        
+                      // background-color: red;
+                    }
+                  }
+                }
+        
+                &-link {
+                  color: #fff;
+                  display: none;
+                  padding: size(10) size(5);
+                  border-bottom: 1px solid #fff;
+                  display: block;
+                  transition: all 0.2s ease-in-out;
+                  font-size: size(14);
+                  @include flex-between;
+                  @include breakpoint(desktop1024){
+                    font-size: size(16);
+                  }
+               
+
+        
+                  @include hover {
+                    @include setBgColor(darken(coral, 50%), $white);
+                  }
+                  .linkicon {
+                    transform: rotate(90deg);
+                  }
+                }
+              }
+            }
+            // deep dropdow
+            .deepdropdown {
+              background-color: darkgoldenrod;
+              position: absolute;
+              left: 100%;
+              width: 100%;
+              top: 0;
+        
+              @extend %animation;
+              @extend %slideRightIn;
+              display: none;
+              .deepdropdownlist {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                &-link {
+                  padding: size(10) size(4);
+                  border-bottom: 1px solid #fff;
+                  display: block;
+                  color: $white;
+                  font-size: size(14);
+                  @include breakpoint(desktop1024){
+                    font-size: size(16);
+                  }
+                  @include hover {
+                    @include setBgColor(darken(darkgoldenrod, 20%), $white);
+                  }
+                }
+              }
+            }
+          }
+        }
+        &-search{
+            
+            height: 100%;
+            input{
+              border: 1px solid #ccc;
+            }
+        }
+    }
+    // 
+    .mobile-search{
+        display: flex;
+
+        @include breakpoint(tab992) {
+          display: none;
+          
+        }
+    }
+
+  }
+ 
+}
+
+.header2{
+  background: $white;
+
+  &-nav{
+    @include flex-center-between;
+    @include breakpoint(tab992){
+      justify-content: flex-start;
+      gap: size(120);
+    }
+
+    .hamburger{
+      .btn-hamburger{      
+        svg{
+          width: size(30);
+          height: size(30);
+        }
+      }
+      @include breakpoint(tab992){
+        display: none;
+      }
+    }
+    .logo{
+      width:size(96);
+      height: size(64);
+      overflow: hidden;
+      @include flex-center;
+      @include breakpoint(tab992){
+        width: size(126);
+        height: size(87);
+      }
+    }
+    .desktopmenu2{
+      padding-right: size(12);
+      width: auto;
+      @include breakpoint(tab992){
+        padding-right: 0;
+        @include flex-center-between;
+        width: calc(100% - size(246));
+      }
+      .deskmenu{
+        // background-color: lightcoral;
+        display: none;
+        @include breakpoint(tab992){
+          display: block;
+        }
+        .desktoplist{
+          @include list-horizontal;
+          gap: size(40);
+          &-link{
+            padding: size(10);
+            display: block;
+            color: #111;
+
+            @include hover{
+              
+            }
+          }
+        }
+
+      }
+      .cartmenu{
+        .cartlink{
+          color: #111;
+          svg{
+            width: size(30);
+            height: size(30);
+            fill{
+
+            }
+          }
+        }
+      }
+      
+    }
+  }
+}
+
+.header-3{
+  background: #2851E3;
+ padding: 20px 0;
+  &-nav{
+    @include flex-center-between;
+    
+  }
+  .hamburger{
+    @include breakpoint(tab992){
+      display: none;
+    }
+    .btn-hamburger{
+      width: size(30);
+      height: size(30);
+      @include flex-center;
+      overflow: hidden;
+      svg{
+        @include wh100;
+        path{
+          fill:$white;
+        }
+      }
+    }
+  }
+  .logo{
+    width: size(134);
+    height: size(34);
+    @include breakpoint(tab992){
+      width: size(134);
+      height: size(34);
+    }
+    overflow: hidden;
+    img{
+      @include wh100;
+      object-fit: cover;;
+    }
+  }
+ .desktopmenu{
+  // padding-right: size(12);
+  width: auto;
+  display: none;
+  @include breakpoint(tab992){
+    //  width: calc(100% - 220px);
+    @include flex-center-between;
+    // display: none;
+  }
+  .deskmenu{
+    display: none;
+    @include breakpoint(tab992){
+      display: block;
+    }
+  .desktoplist{
+    @include list-horizontal;
+    gap: size(30);
+    &-item{
+
+    }
+    &-link{
+      color: $white;
+    }
+  }
+}
+ }
+}
+/*========================== HEader part End===============================*/
+
+.main {
+  padding: size(50) size(0);
+  .btn-container {
+    @include flex-center;
+    gap: size(5);
+  }
+}
+

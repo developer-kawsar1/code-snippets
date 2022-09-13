@@ -1,0 +1,44 @@
+// @use '../../global/';
+// @use '../../partials/';
+
+@use '../../global/' as *;
+@use '../../partials/' as *;
+
+.mobilemenu{
+  
+}
+.menu-link{
+    @include flex-between;
+    background: #fff;
+    padding: size(0) size(10);
+    a{
+        width: calc(100% - size(25));
+        @include flex;
+        gap :size(5);
+        padding: size(10) size(0);
+        color: #111;
+    }
+    .accordion-button{
+        padding: size(16) size(10);
+        border-radius: 0;
+        border: none;
+        background: none;
+
+    }
+}
+
+
+.offcanvas-body{
+    background-color: #F7FAFC;
+    .accordion{
+        border: none;
+    }
+}
+
+.accordion-item{
+    margin-bottom: 10px;
+    border: none;
+    &:first-of-type{
+        border-radius: 0;
+    }
+}

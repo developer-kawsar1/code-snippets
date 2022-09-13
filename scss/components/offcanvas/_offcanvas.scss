@@ -1,0 +1,155 @@
+@use '../../global' as *;
+@use '../../partials' as *;
+
+.offcanvas {
+  background-color: #F7FAFC;
+  &.offcanvas-start {
+    border-right: 0;
+    width: size(280);
+  }
+
+  &-header {
+   
+    .logo {
+      width: size(150);
+    }
+
+    .btn-close {
+      @include radius(0);
+      @include transitionsall;
+      padding: 0;
+      margin: 0;
+      @include square(25);
+      @include flex-center;
+      overflow: hidden;
+
+      svg {
+        @include wh100;
+      }
+
+      @include hover {
+        opacity: 1;
+        @include rotate(180);
+
+        svg {
+          path {
+            // stroke: rgba($white, .8);
+          }
+        }
+      }
+    }
+  }
+
+  &-body {
+   
+   .mobilelist{
+    @include list-vertical;
+    align-items: center;
+    gap: size(8);
+    &-item{
+      width: 100%;
+      
+     .m-dropdown{
+      display: none;
+      @extend %animation;
+      @extend %slideLeftIn;
+      @include transitionsall;
+      position: relative;
+      left: size(10);
+      &-list{
+        @include list-vertical;
+      }
+     &-link{
+      color: #111;
+      @include transitionsall;
+      padding-block: size(5);
+      padding-inline: size(5);
+      @include radius(6);
+      display: block;
+      background: #fff;
+      width: 100%;
+     }
+     }
+      @include hover{
+        .m-dropdown{
+          display: block;
+          
+        }
+      }
+    }
+    &-link{
+      color: #111;
+      @include transitionsall;
+      padding-block: size(5);
+      padding-inline: size(5);
+      @include radius(6);
+      display: block;
+      background: #fff;
+      width: 100%;
+      @include hover{
+        color: lightcoral;
+      }
+    }
+  }
+
+		&::-webkit-scrollbar {
+			background: transparent;
+			width: size(8);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: darken($primary, 25%);
+      @include radius(8);
+		}
+
+  }
+
+
+}
+
+
+.mobile-search{
+  .offcanvas-header{
+ 
+ align-items: center;
+  }
+  .btn-close{
+    // @include square(size(20));
+    width:size(30);
+    height: size(30);
+    
+    svg{
+      @include wh100;
+     
+    }
+
+  }
+
+  &-box{
+    @include flex-center;
+    width: 100%;
+    .search-field{
+      height: size(35);
+      border-top-left-radius: size(5);
+      border-bottom-left-radius: size(5);
+      padding-inline: size(10);
+      flex-grow: 1;
+
+    }
+    .btn-search{
+      background-color: green;
+      @include square(35);
+      border-bottom-right-radius: size(5);
+      border-top-right-radius: size(5);
+    }
+  }
+ 
+}
+
+
+.offcanvas.offcanvas-top{
+  height: 100vh;
+  background-color: peachpuff;
+}
+
+

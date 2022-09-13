@@ -1,0 +1,255 @@
+@use '../../global' as *;
+@use '../../partials' as *;
+
+button, 
+[type='button'], 
+[type='reset'], 
+[type='submit'] {
+  cursor: pointer;
+  border: none;
+  @include transparent-button;
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+
+// submit button
+
+
+
+// .btn-submit{
+//  @include setBgColor($green,$white);
+//  padding: size(8.5) size(40);
+//  @include radius(6);
+//  @include font($secondaryFont, 16, normal, normal, 24);
+//  text-align: center;
+//  max-height: size(42);
+//  @include transitionsall;
+//  @include breakpoint(tab992){
+//   @include font($secondaryFont, 28, normal, normal, 25);
+//  }
+//  @include hover{
+//   @include setBgColor(darken($green,20%),$white)
+//  }
+// }
+
+.btn-submit{
+  @include setBgColor($green,$white);
+  padding: size(8.5) size(40);
+  @include radius(6);
+  @include transitionsall;
+  @include breakpoint(tab992){
+    padding: size(13.5) size(80);
+  }
+  @include hover{
+    @include setBgColor(darken($green,25%),$white);
+
+  }
+  
+}
+
+.slide-one{
+  @include setBgColor($green,$white);
+  padding: size(12) size(30);
+  @include radius(6);
+  display: inline-block;
+  text-transform: uppercase;
+  @include transitionsall;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  &:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+
+    width: 100%;
+    background-color: red;
+    z-index: -2;
+  }
+  &:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+    width: 0;
+    height: 100%;
+    background-color: teal;
+    transition: all .3s;
+
+    width: 100%;
+    background-color: red;
+    z-index: 3;
+    z-index: -1;
+  }
+
+  @include hover{
+    color: green;
+    &:before{
+      width: 100%;
+    }
+  }
+  
+}
+
+.btn-animate-left{
+  // @include setBgColor(#333,#fff);
+  @include border(solid,1,#222);
+  padding: size(10) size(20);
+  color: #222;
+  @include radius(4);
+  position: relative;
+  @include transitionsall;
+  display: inline-block;
+
+  &:after{
+    @include setBgColor(#222,red);
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    z-index: -1;
+    @include transitionsall;
+  }
+  @include hover{
+    color: #fff;
+    &::after{
+      width: 100%;
+    }
+  }
+}
+
+.btn-animate-right{
+  @include border(solid,1,crimson);
+  @include radius(6);
+  padding: size(10) size(20);
+  @include setBgColor(crimson,white);
+  position: relative;
+  @include transitionsall;
+  display: inline-block;
+  &::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #fff;
+    @include transitionsall;
+    z-index: 1;
+  }
+  @include hover{
+    color: crimson;
+    z-index: 2;
+    &:after{
+      width: 100%;
+     
+      
+    }
+
+  }
+
+}
+
+.btn-animate-top{
+  @include border(solid ,1,#0984e3);
+  padding: size(10) size(20);
+  @include radius(6);
+  color:#0984e3;
+  position: relative;
+  display: inline-block;
+  @include transitionsall;
+  &:after{
+    content: '';
+    position: absolute;
+    left:0;
+    top: 0;
+    background: #0984e3;
+    width: 100%;
+    height: 0%;
+    @include transitionsall;
+    z-index: -1;
+  }
+  @include hover{
+    color: #fff;
+    &:after{
+      height: 100%;
+    }
+  }
+}
+
+.btn-animate-bottom{
+  @include border (solid ,1,#16a085);
+   padding: size(10) size(20);
+   @include radius(6);
+   position: relative;
+   overflow: hidden;
+   &:after{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    content: '';
+    background-color: #16a085;
+    height: 0;
+    z-index: -1;
+    @include transitionsall;
+
+   }
+
+   @include hover{
+    color: #fff;
+    &:after{
+      height: 100%;
+    }
+   }
+
+}
+
+.btn-center{
+  position: absolute;
+  background-color: #0984e3;
+}
+// animated buttons
+.border-btn{
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+  @include hover{
+    transition: 1s ease-in-out;
+  background: #4F95DA;
+  svg {
+    stroke-dashoffset: -480;
+  }
+  }
+  svg{
+    position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+  }
+  .btn span {
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+  }
+}

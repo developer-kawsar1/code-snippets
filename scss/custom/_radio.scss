@@ -1,0 +1,108 @@
+@use '../global' as *;
+@use '../partials' as *;
+
+.customradio{
+  padding-block: size(10);
+  &-box{
+    &:checked ~ .customradio-label{
+      &::before{
+        background-color: $white;
+        @include border(solid ,1 ,#F87DA9);
+      }
+      &::after{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+  }
+  &-label{
+    position: relative;
+    color: #111A28;
+    font: inherit;
+    padding-left: size(40);
+    cursor: pointer;
+    &::before,
+    &::after{
+      content: '';
+      @include absolute(top 50% left 0);
+     
+    }
+    &::before{
+      @include square(26);
+      @include border(solid ,1 ,#ddd);
+      background: $white;
+      @include radius(50);
+      @include translateY(-50%);
+      @include transitionsall;
+      
+    }
+    &::after{
+      width: size(18);
+      height: size(18);
+      @include border(solid,2,#fff);
+      @include transform(translateY(-50%));
+      background-color: #F87DA9;
+      left: 4px;
+      border-radius: 50%;
+      opacity: 0;
+      visibility: hidden;
+      @include transitionsall;
+      
+    }
+  }
+}
+
+.square-radio{
+  padding-block: size(10);
+  &-box{
+    &:checked ~ .square-radio-label{
+      &::before{
+        background:transparent;
+        
+        
+
+      }
+      &::after{
+        opacity: 1;
+        visibility: visible;
+      }    
+    }
+  }
+  &-label{
+    position: relative;
+    color: #111A28;
+    font: inherit;
+    padding-left: size(40);
+    cursor: pointer;
+    &::before,
+    &::after
+    {
+      content: '';
+      @include absolute(top 50% left 0);
+
+    }
+    &::before{
+      @include square(26);
+      @include border(solid ,1 ,#111A28);
+      @include translateY(-50%);
+      @include transitionsall;
+
+
+    }
+    &::after{
+      width: size(14);
+      height: size(14);
+      // @include border(solid ,2,$white);
+      background-color: #111A28;
+       
+      left: size(6);
+      @include transform(translateY(-50%));
+      opacity: 0;
+      visibility: hidden;
+      @include transitionsall;
+
+    }
+
+  }
+}
