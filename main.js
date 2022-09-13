@@ -18,6 +18,7 @@ fetch('/search/search.json', {
           <button class="nav-link active" id="nav-home-tab-${single.id}" data-bs-toggle="tab" data-bs-target="#nav-home-${single.id}" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Output</button>
           <button class="nav-link" id="nav-profile-tab-${single.id}" data-bs-toggle="tab" data-bs-target="#nav-profile-${single.id}" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Html</button>
           <button class="nav-link" id="nav-contact-tab-${single.id}" data-bs-toggle="tab" data-bs-target="#nav-contact-${single.id}" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Css</button>
+          <button class="nav-link" id="nav-scss-tab-${single.id}" data-bs-toggle="tab" data-bs-target="#nav-scss-${single.id}" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">scss</button>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent-${single.id}">
@@ -41,6 +42,15 @@ fetch('/search/search.json', {
                   
             </textarea>
                <button class="btn btn-danger" data-clipboard-action="cut" data-clipboard-target="#textarea-css-${single.id}">
+                           Cut to clipboard
+               </button>
+        </div>
+        <div class="tab-pane fade" id="nav-scss-${single.id}" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+           <textarea name="" id="textarea-scss-${single.id}" cols="30" rows="10">
+              ${single.scss}
+                  
+            </textarea>
+               <button class="btn btn-danger" data-clipboard-action="cut" data-clipboard-target="#textarea-scss-${single.id}">
                            Cut to clipboard
                </button>
         </div>
