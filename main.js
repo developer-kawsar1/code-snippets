@@ -1,9 +1,8 @@
 
 
-
-
-
-fetch('/search/search.json')
+fetch('/search/search.json', {
+  mode: 'cors',
+})
 .then(res=>res.json())
 .then(data=>{
   console.log(data);
