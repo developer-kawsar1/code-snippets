@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="  cdn_modules/bootstrap@5.2.1/css/bootstrap.min.css">
+  <style>
+   textarea{
+     padding: 0 !important;
+     height: 300px;
+   }
+  </style>
+</head>
+
+<body>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12 ">
+        <div class="form-group py-1">
+          <input type="number" class="form-control" placeholder="id" id="id">
+        </div>
+        <div class="form-group py-1">
+          <input type="text" class="form-control" placeholder="html" id="html">
+        </div>
+        <div class="form-group py-1">
+          <input type="text" class="form-control" placeholder="scss" id="scss">
+        </div>
+        <div class="form-group py-1">
+          <input type="text" class="form-control" placeholder="css" id="css">
+        </div>
+        <div class="form-group py-1">
+          <div class="d-grid">
+            <button class="btn btn-danger" onclick="addJson()"> Add </button>
+          </div>
+        </div>
+
+        <!-- output -->
+
+        <textarea name="" id="textarea" class="form-control"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  const textarea=document.getElementById('textarea');
+  textarea.value=''
+  
+    function addJson() {
+      var html = document.getElementById('html').value
+      var scss = document.getElementById('scss').value
+      var css = document.getElementById('css').value
+      var id= document.getElementById('id').value
+        
+        html=html.replaceAll("\"", '\\"');
+
+      const string = `{
+     "id":${id},
+     "html":"${html}",
+     "scss":"${scss}",
+     "css":"${css}"
+   },
+   `
+    textarea.value+=string
+      console.log(string)
+    }
+  </script>
+
+</body>
+
+</html>
