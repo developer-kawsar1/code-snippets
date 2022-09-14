@@ -253,3 +253,20 @@ button,
     font-weight: 100;
   }
 }
+
+
+// login-btn
+.login-btn{
+  @include setBgColor(#6358DC,$white);
+  padding: size(8.5) size(40);
+  @include radius(6);
+  @include transitionsall;
+  @include w100;
+  @include breakpoint(tab992){
+    padding: size(13.5) size(80);
+  }
+  @include hover{
+    @include setBgColor(darken(#6358DC,25%),$white);
+
+  }
+}

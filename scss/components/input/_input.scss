@@ -331,3 +331,14 @@
 
 
 
+// form inputs
+.form-input{
+  @include border(solid,1.5,rgba(0, 0, 0, 0.1));
+  padding: size(8.8) size(16);
+  @include radius(8);
+  @include transitionsall;
+  &:focus{
+      @include border(solid,1.5,rgba(0, 0, 0, 0.3));
+  }
+
+}

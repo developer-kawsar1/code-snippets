@@ -1,0 +1,289 @@
+@use '../../global' as *;
+@use '../../partials' as *;
+
+.login-form1{
+    background-color: #fff;
+    @include flex-center-column;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    max-width: size(500);
+    margin: auto;
+    gap: size(30);
+    padding: size(30);
+
+    &-header{
+        @include flex-column;
+        text-align: center;
+        gap: size(20);
+        .logo{
+            .logo-img{
+                display: inline-block;
+            }
+        }
+        .card-text{
+            color: #575757;
+            font-size: 14px;
+        }
+
+    }
+    &-body{
+        @include w100;
+        @include flex-column;
+        gap: size(10);
+        form{
+            @include flex-column;
+            gap: size(20);
+
+            .input-1{
+                
+                @include border(solid,1,#E7E7EB);
+                @include transitionsall;
+            }
+        }
+        .login-social{
+            @include flex-column;
+            align-items: center;
+            gap: size(10);
+            .social{
+                @include list-horizontal;
+                gap:size(20)
+            }
+        }
+        .card-text{
+            color: #575757;
+            font-size: 14px;
+        }
+
+
+        .btn-submit{
+            @include w100;
+        }
+    }
+
+}
+.registration{
+    background: url('../../../assets/images/registrationbg.png');
+    padding-block: size(70);
+    background-repeat: no-repeat;
+    background-position: center;
+    .regform{
+        background: #F6FBF9;
+        @include radius(40);
+        @include flex-column;
+        max-width: size(700);
+        margin-inline: auto;
+        gap:size(20);
+        padding: size(30);
+        @include breakpoint(tab992){
+            padding: size(60);
+        }
+        .regform-header{
+            text-align: center;
+            .form-title{
+                text-align: center;
+                color: #212B27;
+                @include font($primaryFont,25,bold,normal,35);
+                @include breakpoint(tab992){
+                    @include font($primaryFont,30,bold,normal,45);
+                }
+
+            }
+            .form-text{
+                text-align: center;
+                color: #32403B;
+                @include font($primaryFont,14,normal,normal,20);
+            }
+        }
+        &-body{
+            @include flex-column;
+            gap: size(16);
+            .form-input{
+                @include border(solid,1.5,rgba(0, 0, 0, 0.1));
+                padding: size(8.8) size(16);
+                @include radius(8);
+                @include transitionsall;
+                &:focus{
+                    @include border(solid,1.5,rgba(0, 0, 0, 0.3));
+                }
+
+            }
+            .btn-container{
+                margin-inline: auto;
+                .form-btn{
+                    @include setBgColor(#84C7AE,#fff);
+                    display: inline-block;
+                    padding: size(10) size(70);
+                    @include radius(8);
+                    @include transitionsbackground;
+                    @include font($secondaryFont,20,bold,normal,30);
+                    letter-spacing: 2.5;
+                    @include hover {
+                        @include setBgColor(darken(#84C7AE, 30%), $white);
+                      }
+                }
+            }
+           
+            .signin{
+                text-align: center;
+                color: #32403B;
+                @include font($primary,14,normal,normal,20);
+                a{
+                    color: #32403B;
+                    text-decoration: none;
+                    @include hover{
+                        color: darken(#32403B,50%);
+                    }
+                }
+            }
+        }
+    }
+
+    
+}
+
+// Login 2
+.login{
+    background: #F4F4F4;
+    padding: size(50) 0;
+    @include breakpoint(tab992){
+        padding: size(70) size(0);
+    }
+    // lefi side 
+    figure{
+        @include h100;
+        @include flex-center;
+        .left-image{
+            max-width: size(300);
+        }
+    }
+    .loginform2{
+        background: #FFFFFF;
+        @include radius(8);
+        padding: size(40);
+        &-header{
+            @include flex-column;
+            gap: size(16);
+            align-items: flex-start;
+            .login-title{
+                font-weight: bold;
+                font-size: size(20);
+                @include w100;
+                text-align: center;
+                margin-bottom: size(10);
+                @include breakpoint(tab992){
+                    font-size: size(30);
+                    text-align:left;
+                }
+                span{
+                    color: #6358DC;
+                    font-weight: bolder;
+                    font-size: size(30);
+                    @include breakpoint(tab992){
+                        font-size: size(40);
+                    }
+                }
+            }
+            .social-btn{
+                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                background-color: #fff;
+                @include flex-center;
+                @include w100;
+                gap:size(10);
+                padding: size(10);
+                @include radius(8);
+                @include transitionsall;
+                @include font($primaryFont,14,normal,normal,20);
+                @include hover{
+                    transform: translateY(-2px);
+                }
+            }
+            .social-img{
+
+            }
+            .or{
+                text-align: center;
+                width: 100%;
+                padding: size(10) size(0);
+                p{
+                    position: relative;
+                    display: inline-block;
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        background: #BFBFBF;
+                        width: size(120);
+                        height: size(1);
+                        left: 150%;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        background-color: #BFBFBF;
+                        width: size(120);
+                        height: size(1);
+                        right: 150%;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+        
+        &-body{
+            @include flex-column;
+            gap: size(10);
+            .input-box{
+                background: #ECECEC;
+                @include radius(8);
+                padding: size(8) size(20);
+                padding-left: size(50);
+                @include flex-column;
+                position: relative;
+                gap:size(4);
+                .input-label{
+                    font-size: size(12);
+                    color: #2F2F2F;
+                }
+                .input-field{
+                    background: transparent;
+                    font-size: size(12);
+                    font-weight: bold;
+                    &::placeholder{
+                        font-size: size(12);
+                        color: #666;
+                    }
+                }
+                .placeholder-icon{
+                    position: absolute;
+                    left: size(10);
+                    top: 50%;
+                    transform: translateY(-50%);
+                    
+                }
+            }
+            .remember-box{
+                @include flex-center-between;
+                a{
+                    color:#6358DC;
+                    @include hover{
+                        color: darken(#6358DC,50%);
+                    }
+
+                }
+            }
+            .button-box{
+                @include flex-column;
+                gap:size(10);
+                text-align: center;
+               
+               a{
+                color:#6358DC;
+                @include hover{
+                    color:darken(#6358DC,50%);
+                }
+               }
+            }
+        }
+    }
+}
